@@ -15,3 +15,15 @@ bundle install
 ```
 
 This will give you the application.
+
+```
+psql
+CREATE DATABASE bookmark_manager;
+\c bookmark_manager
+CREATE TABLE bookmarks(id SERIAL PRIMARY KEY, url VARCHAR(60));
+INSERT INTO bookmarks (url) VALUES ('http://makersacademy.com');
+INSERT INTO bookmarks (url) VALUES ('http://destroyallsoftware.com');
+INSERT INTO bookmarks (url) VALUES ('http://google.com');
+```
+
+This will give you the database and the bookmarks required to pass the tests.
