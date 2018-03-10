@@ -1,5 +1,5 @@
 # Set the environment to "test"
-ENV['RACK_ENV'] = 'test'
+ENV['ENVIRONMENT'] = 'test'
 
 # Bring in the contents of the `app.rb` file
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
@@ -19,6 +19,10 @@ RSpec.configure do |config|
 
   config.mock_with :rspec do |mocks|
     mocks.verify_partial_doubles = true
+  end
+
+  config.before(:each) do
+    require_relative './setup_test_database'
   end
 
   config.shared_context_metadata_behavior = :apply_to_host_groups

@@ -21,9 +21,9 @@ psql
 CREATE DATABASE bookmark_manager;
 \c bookmark_manager
 CREATE TABLE bookmarks(id SERIAL PRIMARY KEY, url VARCHAR(60));
-INSERT INTO bookmarks (url) VALUES ('http://makersacademy.com');
-INSERT INTO bookmarks (url) VALUES ('http://destroyallsoftware.com');
-INSERT INTO bookmarks (url) VALUES ('http://google.com');
+CREATE DATABASE bookmark_manager_test;
+\c bookmark_manager_test
+CREATE TABLE bookmarks(id SERIAL PRIMARY KEY, url VARCHAR(60));
 ```
 
-This will give you the database and the bookmarks required to pass the tests.
+This will give you the databases required to pass the tests.
