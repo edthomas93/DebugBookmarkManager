@@ -22,7 +22,7 @@ RSpec.configure do |config|
   end
 
   config.before(:each) do
-    require_relative './setup_test_database'
+    load 'setup_test_database.rb'
   end
 
   config.shared_context_metadata_behavior = :apply_to_host_groups

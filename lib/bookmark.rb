@@ -9,7 +9,7 @@ class Bookmark
     end
 
     result = connection.exec("SELECT * FROM bookmarks")
-    result.map { |link| link['url'] }
+    result.map(&:to_h)
   end
 
   def self.create(options)
@@ -19,6 +19,7 @@ class Bookmark
       connection = PG.connect(dbname: 'bookmark_manager')
     end
     
-    connection.exec("INSERT INTO bookmarks (url) VALUES('#{options[:url]}')")
+    result = connection.exec("INSERT INTO bookmarks (title, url) VALUES('#{options[:title]}', '#{options[:url]}') RETURNING id, title, url")
+    result.map(&:to_h).first
   end
 end

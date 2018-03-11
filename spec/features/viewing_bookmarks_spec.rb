@@ -3,14 +3,14 @@ require 'pg'
 feature 'Viewing bookmarks' do
   scenario 'Visiting /bookmarks shows me all the bookmarks' do
     # Add the test data
-    Bookmark.create(url: "http://makersacademy.com")
-    Bookmark.create(url: "http://destroyallsoftware.com")
-    Bookmark.create(url: "http://google.com")
+    Bookmark.create(title: 'Makers Academy', url: "http://makersacademy.com")
+    Bookmark.create(title: 'Destroy All Software', url: "http://destroyallsoftware.com")
+    Bookmark.create(title: 'Google', url: "http://google.com")
 
     visit('/bookmarks')
 
-    expect(page).to have_content "http://makersacademy.com"
-    expect(page).to have_content "http://destroyallsoftware.com"
-    expect(page).to have_content "http://google.com"
+    expect(page).to have_content "Makers Academy"
+    expect(page).to have_content "Destroy All Software"
+    expect(page).to have_content "Google"
   end
 end

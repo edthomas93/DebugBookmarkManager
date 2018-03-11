@@ -20,10 +20,10 @@ This will give you the application.
 psql
 CREATE DATABASE bookmark_manager;
 \c bookmark_manager
-CREATE TABLE bookmarks(id SERIAL PRIMARY KEY, url VARCHAR(60));
+CREATE TABLE bookmarks(id SERIAL PRIMARY KEY, title VARCHAR(60), url VARCHAR(60));
 CREATE DATABASE bookmark_manager_test;
 \c bookmark_manager_test
-CREATE TABLE bookmarks(id SERIAL PRIMARY KEY, url VARCHAR(60));
+CREATE TABLE bookmarks(id SERIAL PRIMARY KEY, title VARCHAR(60), url VARCHAR(60));
 ```
 
 This will give you the databases required to pass the tests.
