@@ -20,7 +20,16 @@ describe Bookmark do
 
   describe '.create' do
     it 'creates a new bookmark' do
-      expect(Bookmark.create(title: 'Test Bookmark', url: 'http://www.testbookmark.com')['id']).not_to be_nil
+      expect(Bookmark.create(title: 'Test Bookmark', url: 'http://www.testbookmark.com').id).not_to be_nil
+    end
+  end
+
+  describe '#==' do
+    it 'two Bookmarks are equal if their IDs match' do
+      bookmark_1 = Bookmark.new(1, 'Test Bookmark', 'http://testbookmark.com')
+      bookmark_2 = Bookmark.new(1, 'Test Bookmark', 'http://testbookmark.com')
+
+      expect(bookmark_1).to eq bookmark_2
     end
   end
 end
