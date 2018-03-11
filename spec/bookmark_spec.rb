@@ -19,8 +19,8 @@ describe Bookmark do
   end
 
   describe '.create' do
-  it 'creates a new bookmark' do
-    expect(Bookmark.create(title: 'Test Bookmark', url: 'http://www.testbookmark.com')['id']).not_to be_nil
+    it 'creates a new bookmark' do
+      expect(Bookmark.create(title: 'Test Bookmark', url: 'http://www.testbookmark.com')['id']).not_to be_nil
+    end
   end
-end
 end
