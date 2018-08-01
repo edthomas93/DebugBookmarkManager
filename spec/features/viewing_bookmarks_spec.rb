@@ -7,7 +7,7 @@ feature 'Viewing bookmarks' do
     Bookmark.create(title: 'Destroy All Software', url: "http://destroyallsoftware.com")
     Bookmark.create(title: 'Google', url: "http://google.com")
 
-    visit('/bookmarks')
+    visit('/all_bookmarks')
 
     expect(page).to have_content "Makers Academy"
     expect(page).to have_content "Destroy All Software"
