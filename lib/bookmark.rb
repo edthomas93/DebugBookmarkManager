@@ -3,7 +3,7 @@ require 'pg'
 class Bookmark
   attr_reader :id
 
-  def initalize(id, title, url)
+  def initialize(id, title, url)
     @id  = id
     @title = title
     @url = url
@@ -11,9 +11,9 @@ class Bookmark
 
   def self.all
     if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'bookmark_manager_test')
+      connection = PG.connect(dbname: 'debug_bookmark_manager_test')
     else
-      connection = PG.connect(dbname: 'bookmark_manager')
+      connection = PG.connect(dbname: 'debug_bookmark_manager')
     end
 
     result = connection.exec("SELECT * FROM bookmarks")
@@ -22,9 +22,9 @@ class Bookmark
 
   def self.create(options)
     if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'bookmark_manager_test')
+      connection = PG.connect(dbname: 'debug_bookmark_manager_test')
     else
-      connection = PG.connect(dbname: 'bookmark_manager')
+      connection = PG.connect(dbname: 'debug_bookmark_manager')
     end
 
     result = connection.exec("INSERT INTO bookmarks (title, url) VALUES('#{options[:title]}', '#{options[:url]}') RETURNING id, title, url")

@@ -1,26 +1,26 @@
-# Debugging 2
-
-Tightening the loop and getting visibility (on the web).
+# Debugging a database-backed web application
 
 ## Learning Objectives
 
-- Define 'debugging' as the process of eliminating bugs from an expected program output
-- Explain the mantra 'Tighten the loop; Get visibility'
+- Define 'debugging' as the process of eliminating bugs from an expected program output.
+- Explain the mantra 'Tighten the loop; Get visibility'.
 - Use the mantra to resolve bugs across the web stack.
 
 ## Instructions
 
-In this program, there are many bugs. You have three objectives:
+In this program, there are five bugs.
 
 - Find the bugs and fix them.
 - You need to get all the tests passing.
 - You need to run the app and make sure it works.
-- If you find a bug that is not covered by a test, write a test before fixing the bug
 
 Use this debugging method:
 
 - Tighten the loop
+  - Find the exact line which triggers the bug and when that line is executed.
 - Get visibility
+  - What _should_ be happening on and around that line.
+  - Investigate whether that is actually being achieved.
 - Once you know the _one thing_ that is wrong, out of place, misspelled, or not giving you what you expect, try to fix it.
 - If your attempts to fix the bug do not change the error message, be _very_ suspicious and seriously consider reverting that change!
 
@@ -37,11 +37,11 @@ This will give you the application.
 
 ```
 psql
-CREATE DATABASE bookmark_manager;
-\c bookmark_manager
+CREATE DATABASE debug_bookmark_manager;
+\c debug_bookmark_manager
 CREATE TABLE bookmarks(id SERIAL PRIMARY KEY, title VARCHAR(60), url VARCHAR(60));
-CREATE DATABASE bookmark_manager_test;
-\c bookmark_manager_test
+CREATE DATABASE debug_bookmark_manager_test;
+\c debug_bookmark_manager_test
 CREATE TABLE bookmarks(id SERIAL PRIMARY KEY, title VARCHAR(60), url VARCHAR(60));
 ```
 
