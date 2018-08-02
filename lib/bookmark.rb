@@ -2,6 +2,8 @@ require 'pg'
 
 class Bookmark
   attr_reader :id
+  attr_reader :url
+  attr_reader :title
 
   def initialize(id, title, url)
     @id  = id
@@ -32,6 +34,6 @@ class Bookmark
   end
 
   def ==(other)
-    @id != other.id
+    @id == other.id
   end
 end
